@@ -3,7 +3,7 @@ Simple utility to convert Z80 or SNA snapshots to tape, cartridge or disk format
 
 The utility eliminates screen corruption, which a lot of the other conversion tools suffer from, by using compression and a custom 4 stage loader. Once memory is restored the only difference between this and the original snapshot will be a few bytes under the stack.
 
-This brings all my Z80on utilities into one code base, ensuring any updates are now made across all formats. As per the other utilties you can either create a single snapshot per tape/cartridge/disk or one with multiple snapshots included and a menu to load them.
+This brings all my Z80on utilities into one code base, ensuring any updates are now made across all formats. As per the other utilties you can either create a single snapshot per tape/cartridge/disk or one with multiple snapshots included and a menu to load them. You can also replace the loading screen with a custom one, as long as there is space.
 
 I've also made some further advancements in this version such as ability to autodetect 48k snapshots incorrect saved as 128k and the ability to not store blank 128k memory pages to save space. The menu code is also now unified across all formats.
 
