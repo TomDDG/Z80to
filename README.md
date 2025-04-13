@@ -1,11 +1,13 @@
 # Z80to
-Simple utility to convert Z80 or SNA snapshots to tape, cartridge or disk format so they can be loaded on real hardware with the appropriate device
+Simple utility to convert Z80 or SNA snapshots to tape, cartridge or disk format so they can be loaded on real hardware with the appropriate device. The utility eliminates screen corruption, which a lot of the other conversion tools suffer from, by using compression and a custom 4 stage loader. Once memory is restored the only difference between this and the original snapshot will be a few bytes under the stack.
 
 This brings all my Z80on utilities into one code base, ensuring any updates are now made across all formats. As per the other utilties you can either create a single snapshot per tape/cartridge/disk or one with multiple snapshots included and a menu to load them.
 
 I've also made some further advancements in this version such as ability to autodetect 48k snapshots incorrect saved as 128k and the ability to not store blank 128k memory pages to save space. The menu code is also now unified across all formats.
 
 I originally created this utility to accompany my ZXPicoMD device (https://github.com/TomDDG/ZXPicoMD) as very few Microdrive cartridges where released in the 1980s.
+
+I highly recommend using Skoolkit (https://skoolkit.ca/skoolkit/) to create "perfect" snapshots to use with this utility. Skoolkit will create the snapshot as soon as the game has loaded which has the advantage, in most cases, of removing the need to add a loading screen back in.
 
 ```
 Z80to v1.0 ©Tom Dalby 2025
