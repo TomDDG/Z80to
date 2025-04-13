@@ -1,5 +1,6 @@
 # Z80to
 Simple utility to convert Z80 or SNA snapshots to tape, cartridge or disk format so they can be loaded on real hardware with the appropriate device
+
 This brings all my Z80on utilities into one code base, ensuring any updates are now made across all formats. As per the other utilties you can either create a single snapshot per tape/cartridge/disk or one with multiple snapshots included and a menu to load them.
 
 I've also made some further advancements in this version such as ability to autodetect 48k snapshots incorrect saved as 128k and the ability to not store blank 128k memory pages to save space. The menu code is also now unified across all formats.
