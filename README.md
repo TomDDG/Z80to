@@ -44,3 +44,7 @@ Examples:
 - v1.0 - initial release
 - v1.0a - fixed 3DOS naming convention
 - v1.1 - 3DOS now works with 128k snapshots
+
+## 3DOS
+
+Getting 128k snapshots to work on a +3 was a challenge. Unlike the other disk formwats 3DOS makes extensive use of memory bank 7 even after disabling the disk cache. As a result and if a snapshot contains data in bank 7 the launcher becomes a lot more complicated. In my original Z80onDSK utility I simply used the screen for the launcher but this cause a lot of corruption. I wanted 3DOS to match the others with zero corruption unless absolutely necessary. In order to do this I had to split bank 7 into 2 parts. Part 1 contains the memory areas around the area 3DOS uses and this is loaded as per the other memory banks. The 2nd part is then added to the main compression and decompressed only after 3DOS has finished. This is the only time it is safe to overwrite the 3DOS area of bank 7.
