@@ -12,7 +12,7 @@ I originally created this utility to accompany my ZXPicoMD device (https://githu
 I highly recommend using Skoolkit (https://skoolkit.ca/skoolkit/) to create "perfect" snapshots to use with this utility. Skoolkit will create the snapshot as soon as the game has loaded which has the advantage, in most cases, of removing the need to add a loading screen back in.
 
 ```
-Z80to v1.0 ©Tom Dalby 2025
+Z80to v1.1 ©Tom Dalby 2025
 Usage: z80to [Output Format] <Menu> "InputFile" <InputFile Options>
 
 Output Format:
@@ -20,7 +20,7 @@ Output Format:
   -m               Create Microdrive [.MDR] Cartridge Output
   -o               Create Opus Discovery [.OPD] Disk Output (SSSD Disk)
   -p               Create Plus D [.MGT] Disk Output (DSDD Disk)
-  -d               Create +3DOS (DSK) Disk Output (SSSD Disk) *48k Only
+  -d               Create +3DOS (DSK) Disk Output (SSSD Disk)
 
 <optional> Menu:
   -n "Name"        Add menu, titled "Name" (max 10chars). Up to 16 snapshots
