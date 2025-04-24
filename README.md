@@ -46,9 +46,11 @@ Examples:
 - v1.1 - 3DOS now works with 128k snapshots
 
 ## 3DOS
-
 Getting 128k snapshots to work on a +3 was a challenge. Unlike the other disk formwats 3DOS makes extensive use of memory bank 7 even after disabling the RAM drive and disk cache. As a result, and if a snapshot contains data in bank 7, the launcher becomes a lot more complicated. This is why the original release of this utility only support 48k snapshots as these don't require restoration of bank 7. 
 
 In my original Z80onDSK utility I simply used the screen for the launcher but this causes a lot of corruption which looks a mess. As this is a unified utility I wanted 3DOS to match the others with zero corruption unless absolutely necessary. In order to do this I had to split bank 7 into 2 parts. Part 1 contains the memory areas around the area 3DOS uses and this is loaded as per the other memory banks. The 2nd part is then added to the main compression and decompressed only after 3DOS has finished. This is the only time it is safe to overwrite the 3DOS area of bank 7. If there isn't enough room, then screen is used as the last resort.
 
 The only other change from the other disk formwats is the handling of alternate loading screens. For the other disk formats these are added to the main compression if there is enough memory. If there isn't enough memory space then the final screen is loaded at the end. Due to the bank 7 decompression 3DOS always puts the final screen at the end and never in the main compression.
+
+### Motor timeout
+Another issue with 3DOS is the additional motor timeout routine in the 48k ROM which will run on an interrupt. These uses memory location 0xe600 in bank 7 and will decrease this to zero. If the snapshot uses this memory location and needs a value other than zero then it may not work on DSK as the 48k ROM will adjust this value on each interrupt.
