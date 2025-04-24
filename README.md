@@ -41,6 +41,6 @@ Examples:
     Creates MGT disk with two snapshots & menu titled "MM+JSW". jsw has an alternate loading screen
 ```
 ## Versions
-v1.0 - initial release
-v1.0a - fixed 3DOS naming convention
-v1.1 - 3DOS now works with 128k snapshots
+- v1.0 - initial release
+- v1.0a - fixed 3DOS naming convention
+- v1.1 - 3DOS now works with 128k snapshots
