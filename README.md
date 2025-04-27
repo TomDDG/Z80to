@@ -56,3 +56,10 @@ The only other change from the other formats is the handling of the alternate lo
 
 ### Motor timeout
 On a +3 machine running 3DOS the 48k ROM contains an additional motor timeout routine which will run on an interrupt. This ROM routine uses memory location 0xe600 in bank 7 and over time will decrease the value held at this location to zero, upon which the motor is switched off. If the snapshot requires this memory location to be anything other than zero and the standard ROM interrupt is on then it may not work as the ROM routine will continually decrease this value on each interrupt.
+
+## TR-DOS
+BASIC loader needs to be called behind a RANDOMIZE USR and REM statements.
+
+````
+RANDOMIZE USR 15619: REM: LOAD "program"
+````
