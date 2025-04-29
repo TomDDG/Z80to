@@ -47,7 +47,7 @@ Examples:
 - v1.0a - fixed 3DOS naming convention
 - v1.1 - 3DOS now works with 128k snapshots
 - v1.2 - TR-DOS disks format added (SSDD only)
-- v1.3 - Added Quick DOS DSDD disk support for OPUS Discovery
+- v1.3 - Added Quick DOS DSDD disk support for Opus Discovery
 
 ## 3DOS
 Getting 128k snapshots to work on a +3 was a challenge. Unlike the other formats 3DOS makes extensive use of memory bank 7, even after disabling the RAM drive and disk cache. As a result, and if a snapshot contains data in bank 7, the launcher becomes a lot more complicated. This is why the original release of this utility only supported 48k snapshots as these don't require restoration of bank 7. 
