@@ -12,16 +12,17 @@ I originally created this utility to accompany my ZXPicoMD device (https://githu
 I highly recommend using Skoolkit (https://skoolkit.ca/skoolkit/) to create "perfect" snapshots to use with this utility. Skoolkit will create the snapshot as soon as the game has loaded which has the advantage, in most cases, of removing the need to add a loading screen back in.
 
 ```
-Z80to v1.2 ©Tom Dalby 2025
+Z80to v1.3 ©Tom Dalby 2025
 Usage: z80to [Output Format] <Menu> "InputFile" <InputFile Options>
 
 Output Format:
   -t               Create Cassette [.TAP] Tape Output
   -m               Create Microdrive [.MDR] Cartridge Output
   -o               Create Opus Discovery [.OPD] Disk Output (SSSD Disk)
+  -q               Create Opus Discovery Quick DOS [.OPD] Disk Output (DSDD Disk)
   -p               Create Plus D [.MGT] Disk Output (DSDD Disk)
-  -d               Create +3DOS (DSK) Disk Output (SSSD Disk)
-  -r               Create TR-DOS Disk Output (SSDD Disk)
+  -d               Create +3DOS [.DSK] Disk Output (SSSD Disk)
+  -r               Create TR-DOS Disk [.TRD] Output (SSDD Disk)
 
 <optional> Menu:
   -n "Name"        Add menu, titled "Name" (max 10chars). Up to 16 snapshots
@@ -46,6 +47,7 @@ Examples:
 - v1.0a - fixed 3DOS naming convention
 - v1.1 - 3DOS now works with 128k snapshots
 - v1.2 - TR-DOS disks format added (SSDD only)
+- v1.3 - Added Quick DOS DSDD disk support for OPUS Discovery
 
 ## 3DOS
 Getting 128k snapshots to work on a +3 was a challenge. Unlike the other formats 3DOS makes extensive use of memory bank 7, even after disabling the RAM drive and disk cache. As a result, and if a snapshot contains data in bank 7, the launcher becomes a lot more complicated. This is why the original release of this utility only supported 48k snapshots as these don't require restoration of bank 7. 
