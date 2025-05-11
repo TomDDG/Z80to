@@ -12,24 +12,25 @@ I originally created this utility to accompany my ZXPicoMD device (https://githu
 I highly recommend using Skoolkit (https://skoolkit.ca/skoolkit/) to create "perfect" snapshots to use with this utility. Skoolkit will create the snapshot as soon as the game has loaded which has the advantage, in most cases, of removing the need to add a loading screen back in.
 
 ```
-Z80to v1.3 ©Tom Dalby 2025
-Usage: z80to [Output Format] <Menu> "InputFile" <InputFile Options>
+Z80to v1.4 ©Tom Dalby 2025
+Usage: z80to [Output Format] <Global Options> "InputFile" <InputFile Options>
 
 Output Format:
   -t               Create Cassette [.TAP] Tape Output
   -m               Create Microdrive [.MDR] Cartridge Output
-  -o               Create Opus Discovery [.OPD] Disk Output (SSSD Disk)
-  -q               Create Opus Discovery Quick DOS [.OPD] Disk Output (DSDD Disk)
-  -p               Create Plus D [.MGT] Disk Output (DSDD Disk)
-  -d               Create +3DOS [.DSK] Disk Output (SSSD Disk)
-  -r               Create TR-DOS Disk [.TRD] Output (SSDD Disk)
+  -o               Create Opus Discovery [.OPD] Disk Output (SSSD)
+  -q               Create Opus Discovery Quick DOS [.OPD] Disk Output (DSDD)
+  -p               Create Plus D [.MGT] Disk Output (DSDD)
+  -d               Create +3DOS [.DSK] Disk Output (SSSD)
+  -r               Create TR-DOS Disk [.TRD] Output (SSDD)
 
-<optional> Menu:
-  -n "Name"        Add menu, titled "Name" (max 10chars). Up to 16 snapshots
+<Global Options>
+  -n "Name"        Add menu, titled "Name" (max 10chars). Min 2, max 16 snapshots
+  -c               Create TAP copy of disk, used for transfer
 
 "InputFile"        .Z80 or .SNA snapshot. 48k & 128k supported
 
-<optional> InputFile Options:
+<InputFile Options>
   -l screen.scr    Use Alternate Loading Screen (must by 6912byte SCR)
   -f               Force 48k removing any 128k memory banks & disabling paging
   -k               Keep 128k fully intact (-f overrides)
@@ -41,6 +42,8 @@ Examples:
     Creates OPD disk with two snapshots
   z80to -p -n "MM+JSW" mminer.z80 jsw.z80 -l jsw.scr
     Creates MGT disk with two snapshots & menu titled "MM+JSW". jsw has an alternate loading screen
+  z80to -r -c mminer.z80
+    Creates TR-DOS Disk with single snapshot and a TAP copy for transfer
 ```
 ## Versions
 - v1.0 - initial release
@@ -48,6 +51,7 @@ Examples:
 - v1.1 - 3DOS now works with 128k snapshots
 - v1.2 - TR-DOS disks format added (SSDD only)
 - v1.3 - Added Quick DOS DSDD disk support for Opus Discovery
+- v1.4 - Added TAP copy option
 
 ## 3DOS
 Getting 128k snapshots to work on a +3 was a challenge. Unlike the other formats 3DOS makes extensive use of memory bank 7, even after disabling the RAM drive and disk cache. As a result, and if a snapshot contains data in bank 7, the launcher becomes a lot more complicated. This is why the original release of this utility only supported 48k snapshots as these don't require restoration of bank 7. 
