@@ -1,11 +1,11 @@
 # Z80to
 Simple utility to convert Z80 or SNA snapshots to tape, cartridge or disk format so they can be loaded on real hardware with the appropriate device. Works with Tape, Sinclair Microdrive, Opus Discovery, MGT Plus D, TR-DOS and +3 Disks. It supports either 48k or 128k snapshots.
 
-The utility eliminates screen corruption, which a lot of the other conversion tools suffer from, by using compression and a custom 4 stage loader. Once memory is restored the only difference between this and the original snapshot will be a few bytes under the stack.
+The utility eliminates screen corruption, which a lot of the other conversion tools suffer from, by using compression and a custom 4 stage launcher. Once memory is restored the only difference between this and the original snapshot will be a few bytes under the stack.
 
 This brings all my Z80on utilities into one code base, ensuring any updates are now made across all formats. As per the other utilties you can either create a single snapshot per tape/cartridge/disk or one with multiple snapshots included and a menu to load them. You can also replace the loading screen with a custom one, as long as there is space.
 
-I've also made some further advancements in this version such as ability to autodetect 48k snapshots incorrect saved as 128k and the ability to not store blank 128k memory pages to save space. The menu code is also now unified across all formats.
+I've also made some further advancements in this version such as ability to autodetect 48k snapshots incorrectly saved as 128k and the ability to not store blank 128k memory pages to save space. The menu and loader codes are now all in BASIC and unified across all formats, apart from the LOAD commands which have to differ.
 
 I originally created this utility to accompany my ZXPicoMD device (https://github.com/TomDDG/ZXPicoMD) as very few Microdrive cartridges where released in the 1980s.
 
@@ -54,6 +54,13 @@ Examples:
 - v1.4 - Added TAP copy option
 
 ## 4 Stage Launcher
+
+Restoring ZX Spectrum's full memory and registers without the aid of an external device requires the launch code to reside within the memory you are trying to restore and this is why the screen is often used. The screen is usually a "safe" place as execution code is not normally placed there, although there are some exceptions. The issue with using the screen is it causes corruption which looks a mess which isn't always cleared after loading. Ideally we wouldn't use it, but in order to do that we need to find somewhere else to put the launcher code. Options are:
+- Immediately under the stack as this space is intentionally free as it is requied for the main code, although there is no indication on the size available so limited use is recommended.
+- A gap within the main code, usually a block of 0x00, which may or may not be used.
+- The printer buffer immediately after the screen, although this may be used by the program.
+
+Ultimately to have the best compatibility we need to use a combination of all of the above, which is how the 4 stage launcher works.
 
 ![image](./images/4stages.png "4 Stage Launcher")
 
