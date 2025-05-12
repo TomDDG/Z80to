@@ -57,8 +57,8 @@ Examples:
 
 Restoring ZX Spectrum's full memory and registers without the aid of an external device requires the launch code to reside within the memory you are trying to restore and this is why the screen is often used. The screen is usually a "safe" place as execution code is not normally placed there, although there are some exceptions. The issue with using the screen is it causes corruption which looks a mess which isn't always cleared after loading. Ideally we wouldn't use it, but in order to do that we need to find somewhere else to put the launcher code. Options are:
 - Immediately under the stack as this space is usualy intentionally free as it is requied for the main code, although there is no indication on the size available and some code does use the stack for more than register storage. If the snapshot is immediately after load then use of the stack is most likely to be for storage.
-- A gap within the main code, usually a block of 0x00, which may or may not be used.
-- The printer buffer immediately after the screen, although this may be used by the program.
+- A gap within the main code, usually a block of 0x00, which may or may not be used. As there is no way to tell if it is used then restoring after use is recommended.
+- The printer buffer immediately after the screen, although this may be used by the program. As there is no way to tell if it is used then restoring after use is recommended.
 
 Ultimately to have the best compatibility we need to use a combination of all of the above, which is how the 4 stage launcher works.
 
