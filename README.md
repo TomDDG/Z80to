@@ -81,3 +81,4 @@ BASIC loader needs to be called behind a RANDOMIZE USR and REM statements.
 ````
 RANDOMIZE USR 15619: REM: LOAD "program"
 ````
+![image](./images/Z80logo_x2.png "Z80to footer")
