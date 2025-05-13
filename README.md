@@ -1,4 +1,4 @@
-![image](./images/Z80logo_x2.png "Z80to")
+![image](./images/Z80logo_x2_t.png "Z80to")
 
 Simple utility to convert Sinclair ZX Spectrum Z80 or SNA snapshots to tape, cartridge or disk format so they can be loaded on real hardware with the appropriate device. Works with Tape, Sinclair Microdrive, Opus Discovery, MGT Plus D, TR-DOS and +3 Disks. It supports either 48k or 128k snapshots.
 
